@@ -122,23 +122,23 @@ function draw() {
 if(doctor.isTouching(button1)){
   wall4.x=700;;  
   score=score+1;
-  button1.destroy();
+  button1.x=900;
 }
 if(doctor.isTouching(button2)){
   wall5.x = 20;
   wall5.width=40;   
   score=score+1;
-  button2.destroy();
+  button2.x=900;
 }
 if(doctor.isTouching(button3)){
  wall9.x=800;
  score=score+1;
- button3.destroy();
+ button3.x=900;
 }
 if (doctor.isTouching(button4)){
  wall15.x=900;
  score=score+1;
- button4.destroy();
+ button4.x=900;
 }
 if(doctor.isTouching(button5)){
 
@@ -146,37 +146,37 @@ if(doctor.isTouching(button5)){
  wall16.y = 150;
  wall16.height=200;
  score=score+1;
- button5.destroy();
+ button5.x=900;
  corona1.velocityY=0;
 }
 if(doctor.isTouching(button6)){
   wall18.x=800;
   score=score+1;
-  button6.destroy();
+  button6.x=900;
 }
 if(doctor.isTouching(button7)){
 wall24.x=800;
 score=score+1;
-button7.destroy();
+button7.x=900;
 }
 if(doctor.isTouching(button8)){
 wall28.x = 350;
 wall30.x = 350;
 wall30.width=150
 score=score+1;
-button8.destroy();
+button8.x=900;
 }
 if(doctor.isTouching(button9)){
 wall30.x = 350;
 wall30.width=150;
 score=score+1;
-button9.destroy();
+button9.x=900;
 }
 if(doctor.isTouching(button10)){
 wall39.x=800;
 wall40.x=800;
 score=score+1;
-button10.destroy();
+button10.x=900;
 }
 if(doctor.isTouching(button11)){
   wall31.x=800;
@@ -184,19 +184,19 @@ if(doctor.isTouching(button11)){
   wall35.x=800;
   corona3.velocityY=0;
   score=score+1;
-  button11.destroy();
+  button11.x=900;
 }
 if(doctor.isTouching(button12)){
   wall36.x=800; 
   wall37.x=800;
   corona2.velocityX=0;
   score=score+1;
-  button12.destroy();
+  button12.x=900;
 }
 if(doctor.isTouching(button13)){
   wall32.x=800;
   score=score+1;
-  button13.destroy();
+  button13.x=900;
 }
 
 if(doctor.isTouching(wall11)||doctor.isTouching(wall12)||doctor.isTouching(wall13)||
@@ -207,19 +207,7 @@ doctor.isTouching(wall39) || doctor.isTouching(wall36)||doctor.isTouching(wall37
   deaths = deaths + 1;
   doctor.x=25;
   doctor.y=15;
-  corona1.destroy();
-  corona2.destroy();
-  corona3.destroy();
-  wall36.destroy();
-  wall37.destroy();
-  wall39.destroy();
-  wall11.destroy();
-  wall12.destroy();
-  wall13.destroy();
-  wall21.destroy();
-  wall22.destroy();
-  wall31.destroy();
-  creation();
+  reposition();
 }
 
 wall11.rotation = wall11.rotation + 2.5;
@@ -296,6 +284,8 @@ vaccine.setCollider("circle",0,00,20);
 corona1=createSprite(130,340,30,30);
 corona1.addImage(corona_img);
 corona1.scale=0.08;
+//corona1.debug=true;
+//corona1.setCollider("circle",0,0,1);
 
 corona2=createSprite(450,440,30,30);
 corona2.addImage(corona_img);
@@ -326,8 +316,8 @@ wall11 = createSprite(50,250,50,10);
 wall12 = createSprite(40,320,40,10);
 wall13 = createSprite(50,370,30,10);
 
-wall21 = createSprite(222.5,285,85,10);
-wall22 = createSprite(222.5,285,10,80);
+wall21 = createSprite(222,285,50,10);
+wall22 = createSprite(222,285,10,50);
 
 wall14 = createSprite(15,435,40,10);
 wall15 = createSprite(97,430,10,120);
@@ -483,26 +473,47 @@ function reset(){
 
 function reposition(){
   wall4.x=97.5;
-  wall5.x=47.5;
-  wall5.width=105;
+  wall5.x = 47.5;
   wall9.x=25;
+  wall5.width=105;
   wall15.x=97;
-  wall16.x=175;
-  wall16.y=330;
+  wall16.x = 175;
+  wall16.y = 330;
   wall16.height=320;
   wall18.x=225;
   wall24.x=270;
-  wall28.x=330;
-  wall30.x=495;
+  wall28.x = 330;
+  wall30.x = 495;
   wall30.width=210;
-  wall39.x=410;
-  wall40.x=415;
-  wall31.x=330;
-  wall32.x=330;
-  wall33.x=350;
-  wall33.x=350;
-  wall37.x=340;
-  wall36.x=280;
+
+wall39.x=410;
+wall39.y=125;
+wall40.x=415;
+wall36.x=280; 
+wall37.x=340;
+wall32.x=330;
+  
+button1.x=160;
+button2.x=45;
+button3.x=25;
+button4.x=5;
+button5.x=160;
+button6.x=188;
+button7.x=255;
+button8.x=395;
+button9.x=220;
+button10.x=485;
+button11.x=350;
+button12.x=285;
+button13.x=350;
+
+corona1.velocityY=-4;
+corona2.velocityX=-7;
+corona3.velocityY=-4;
+wall36.velocityX = 2.5;
+wall37.velocityX = -2.5;
+wall39.velocityX=4;
+  
 }
 
 function collision(){
